@@ -1,0 +1,36 @@
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="KhaledWS_lib:Two_Stage_Wilkinson:schematic"
+model MSub1 MSUB H=800 um Er=4.58 Mur=1 Cond=4.1e+07 Hu=3.9e+34 mil T=35 um TanD=0.022 Rough=0 um DielectricLossModel=1 FreqForEpsrTanD=1.0 GHz LowFreqForTanD=1.0 kHz HighFreqForTanD=1.0 THz RoughnessModel=2 
+MLIN2:TL4  N__0 N__1 Subst="MSub1" W=1063.690000 um L=15677.90367 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL5  N__10 N__2 Subst="MSub1" W=1063.690000 um L=17248.700000 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+R:R1  N__20 N__11 R=106.1 Ohm Noise=yes 
+MTEE_ADS:Tee2  N__15 N__18 N__20 Subst="MSub1" W1=1385.500000 um W2=1385.500000 um W3=250 um 
+MTEE_ADS:Tee3  N__10 N__4 N__11 Subst="MSub1" W1=1063.690000 um W2=274.631000 um W3=250 um 
+Port:Term3  N__24 0 Num=3 Z=50 Ohm Noise=yes 
+MTEE_ADS:Tee6  N__24 N__1 N__17 Subst="MSub1" W1=250 um W2=1063.690000 um W3=250 um 
+MTEE_ADS:Tee5  N__8 N__7 N__22 Subst="MSub1" W1=1063.690000 um W2=250 um W3=250 um 
+MTEE_ADS:Tee4  N__16 N__25 N__18 Subst="MSub1" W1=1063.690000 um W2=1063.690000 um W3=1385.500000 um 
+Port:Term4  N__2 0 Num=4 Z=50 Ohm Noise=yes 
+S_Param:SP1 CalcS=yes CalcY=no CalcZ=no GroupDelayAperture=1e-4 FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=1.0 GHz Stop=5 GHz Lin=101 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+MLIN2:TL1  N__26 N__15 Subst="MSub1" W=1385.500000 um L=15735.70367 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MLIN2:TL3  N__12 N__8 Subst="MSub1" W=1063.690000 um L=15677.90367 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+Port:Term1  N__14 0 Num=1 Z=50 Ohm Noise=yes 
+Port:Term2  N__7 0 Num=2 Z=50 Ohm Noise=yes 
+R:R2  N__22 N__17 R=100 Ohm Noise=yes 
+MLIN2:TL2  N__13 N__4 Subst="MSub1" W=274.631000 um L=16540.90367 um Wall1=1.0E+30 mil Wall2=1.0E+30 mil Mod=1 
+MTEE_ADS:Tee1  N__27 N__19 N__14 Subst="MSub1" W1=1385.500000 um W2=274.631000 um W3=250 um 
+MCURVE:Curve1  N__26 N__27 Subst="MSub1" W=1385.500000 um Angle=90 Radius=1000 um 
+MCURVE:Curve2  N__19 N__13 Subst="MSub1" W=274.631000 um Angle=90 Radius=1000 um 
+MCURVE:Curve3  N__12 N__16 Subst="MSub1" W=1063.690000 um Angle=90 Radius=1000 um 
+MCURVE:Curve4  N__25 N__0 Subst="MSub1" W=1063.690000 um Angle=90 Radius=1000 um 

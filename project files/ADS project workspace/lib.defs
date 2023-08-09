@@ -1,4 +1,0 @@
-INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
-INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
-DEFINE KhaledWS_lib KhaledWS_lib
-ASSIGN KhaledWS_lib libMode shared
